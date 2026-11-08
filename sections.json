@@ -1,0 +1,14 @@
+[
+  {"id": "game-theory", "name": "Game Theory", "description": "Strategic interaction among rational agents: equilibrium concepts, existence and characterization results."},
+  {"id": "mechanism-design", "name": "Mechanism Design", "description": "Designing rules and institutions that achieve desired outcomes when agents hold private information."},
+  {"id": "information", "name": "Information Economics", "description": "How asymmetric information, signaling and screening shape contracts and market outcomes."},
+  {"id": "decision-theory", "name": "Decision Theory", "description": "Axiomatic foundations of individual choice under risk, uncertainty and over time."},
+  {"id": "asset-pricing", "name": "Asset Pricing", "description": "The determination of asset prices and expected returns, from no-arbitrage to equilibrium models."},
+  {"id": "corporate-finance", "name": "Corporate Finance", "description": "Financing, investment and payout decisions of firms, and the frictions that make them matter."},
+  {"id": "microstructure", "name": "Market Microstructure", "description": "How trading mechanisms, liquidity and information determine prices and transaction costs."},
+  {"id": "econometrics", "name": "Econometrics", "description": "Identification, estimation and inference for economic and financial data."},
+  {"id": "macro", "name": "Macroeconomics", "description": "Aggregate outcomes: growth, business cycles, monetary and fiscal policy."},
+  {"id": "urban", "name": "Urban Economics", "description": "The size, growth and spatial distribution of cities and regions."},
+  {"id": "sports", "name": "Sports Economics", "description": "Performance, skill and luck in sports, and what they reveal about evaluation and markets."},
+  {"id": "consumer", "name": "Consumer Economics", "description": "Household spending, consumer demand and living standards."}
+]

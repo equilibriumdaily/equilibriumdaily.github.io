@@ -1,0 +1,147 @@
+[
+  {
+    "id": "0001",
+    "date": "2026-11-08",
+    "section": "mechanism-design",
+    "title": "The Price of a Place in Line",
+    "intuition": "A regulator must decide whose infrastructure project goes first but cannot verify how valuable or reliable a developer's project is. Collateral is then the only tool that makes developers report truthfully. The note computes the exact deposit needed for efficient priority, shows that it exceeds what either pivotal developer gains from priority, and shows that a priority lottery is optimal when collateral is scarcer.",
+    "statement": "Efficient truthful implementation with individual rationality is possible if and only if the escrow limit satisfies $L \\ge K$, where $K = \\frac{c[s(1-r)a - r(1-s)b]}{s-r}$; moreover $K > csa$, so the required collateral exceeds both pivotal types' expected gains from priority.",
+    "summary": "A developer whose project value $v \\in \\{a,b\\}$ and completion probability $p \\in \\{r,s\\}$ are private competes for priority against a fallback developer with a publicly known type; the second project is attempted only if the first fails, and project values are unverifiable. The regulator can use only an escrow of at most $L$, refunded according to reports, the priority lottery and observed completion outcomes. Efficiency gives priority exactly to high-value reports, although the pivotal high-value type $h=(b,r)$ values priority less than the low-value type $\\ell=(a,s)$. When $L < K$, every DSIC mechanism has expected welfare loss at least $\\min\\{\\mu_h\\Delta_h, \\mu_\\ell(-\\Delta_\\ell)\\}(1-L/K)_+$, and a priority lottery attains this bound for a family of two-point priors. The implementing deposit refunds more after failure than after success.",
+    "pdf": "pdf/0001.pdf",
+    "sources": [
+      "Burguet, R., J.-J. Ganuza, and E. Hauk. 2012. \"Limited liability and mechanism design in procurement.\" Games and Economic Behavior 76(1): 15-25. doi:10.1016/j.geb.2012.04.004.",
+      "Che, X., T. Li, J. Lu, and X. Zheng. 2022. \"Deposit Requirements in Auctions.\" American Economic Journal: Microeconomics 14(4): 465-493. doi:10.1257/mic.20200206.",
+      "Chen, J., L. Xu, and A. Whinston. 2010. \"Managing Project Failure Risk Through Contingent Contracts in Procurement Auctions.\" Decision Analysis 7(1): 23-39. doi:10.1287/deca.1090.0155.",
+      "Conitzer, V., and A. Vidali. 2014. \"Mechanism Design for Scheduling with Uncertain Execution Time.\" Proceedings of AAAI 28(1): 623-629. doi:10.1609/aaai.v28i1.8793.",
+      "Mylovanov, T., and A. Zapechelnyuk. 2017. \"Optimal Allocation with Ex Post Verification and Limited Penalties.\" American Economic Review 107(9): 2666-2694. doi:10.1257/aer.20140494.",
+      "Porter, R., A. Ronen, Y. Shoham, and M. Tennenholtz. 2008. \"Fault tolerant mechanism design.\" Artificial Intelligence 172(15): 1783-1799. doi:10.1016/j.artint.2008.06.004."
+    ],
+    "x_url": ""
+  },
+  {
+    "id": "0002",
+    "date": "2026-11-08",
+    "section": "game-theory",
+    "title": "The Information Complexity of Nash Equilibrium",
+    "intuition": "How many noisy observations of payoffs are needed to find an approximate Nash equilibrium of a small zero-sum game with high confidence? The answer depends only on the equilibrium mixing probabilities, is largest when equilibrium play is uniform, and can be far smaller than estimating every payoff first and then solving the game.",
+    "statement": "For a $3 \\times 3$ zero-sum game $A$ with a unique, completely mixed equilibrium $(p,q)$, learned from noisy $N(A_{ij},1)$ queries, the expected number of observations needed to return an $\\varepsilon$-equilibrium with probability $1-\\delta$ satisfies $\\lim_{\\varepsilon \\downarrow 0} \\varepsilon^2 \\lim_{\\delta \\downarrow 0} \\frac{M_{\\varepsilon,\\delta}(A)}{\\log(1/\\delta)} = C(p,q) := 2\\left[\\min_{w \\in \\Delta_9^\\circ} F_{p,q}(w)\\right]^2$, with $0 < C(p,q) \\le 8$ and $C(p,q) = 8$ if and only if $p = q = (1/3,1/3,1/3)$.",
+    "summary": "Each query of payoff entry $(i,j)$ returns an independent $N(A_{ij},1)$ observation, and a procedure must return strategies with duality gap at most $\\varepsilon$ with probability at least $1-\\delta$ for every game in the class. The leading observation complexity, as confidence and then accuracy increase, is the constant $C(p,q)$, which depends on the game only through its equilibrium probabilities; $F_{p,q}(w)$ is a transport-type functional over couplings of $p$ and $q$ given a sampling allocation $w$ over the nine entries. The constant is maximal, equal to 8, exactly at uniform equilibrium, and for the family $A_r$ with equilibrium $(1-2r, r, r)$ it is of order $r^2$. By comparison, estimating all nine payoffs to maximum-norm error $\\varepsilon$ has coefficient 18, and estimating payoffs to error $\\varepsilon/2$ and then solving the game has coefficient 72. The proof applies the infinite-answer pure-exploration characterization of Poiani, Bernasconi and Celli (2026) and evaluates its small-accuracy limit through transportation duality.",
+    "pdf": "pdf/0002.pdf",
+    "sources": [
+      "Poiani, R., Bernasconi, M., and Celli, A. 2026. \"Pure Exploration with Infinite Answers.\" Proceedings of the 29th International Conference on Artificial Intelligence and Statistics, PMLR 300, 2989-2997.",
+      "Kaplansky, I. 1945. \"A Contribution to Von Neumann's Theory of Games.\" Annals of Mathematics 46(3): 474-479."
+    ],
+    "x_url": ""
+  },
+  {
+    "id": "0003",
+    "date": "2026-11-08",
+    "section": "asset-pricing",
+    "title": "The Pre-FOMC Drift Lost Its Morning",
+    "intuition": "Stocks have earned a well-known excess return in the hours before Federal Reserve announcements. Studies using daily closing prices conclude that this drift has faded, but it has moved rather than disappeared: since 2011 it is earned overnight before the announcement day, not during the morning of that day.",
+    "statement": "The pre-FOMC announcement drift in SPY has not disappeared; its timing has changed. From September 2003 to March 2011 most of it accrued between the open and 2pm on the announcement day (29.1 bp, $t = 4.3$); after March 2011 that morning component is zero (1.5 bp), and the overnight return into the announcement day (17.2 bp, $t = 3.7$) is now essentially the whole drift.",
+    "summary": "Lucca and Moench (2015) documented a large excess stock return in the 24 hours before scheduled FOMC announcements, and studies using daily closing prices report that it weakened after 2015. Using SPY from September 2003 to December 2024 (170 scheduled announcements), with CRSP open and close prices and TAQ quote mid-points at 2pm, the note splits the window from 2pm on the previous day to the close of the following day into seven legs and compares each leg on announcement days with all other days. The 2pm-to-2pm drift falls from 58.0 bp to 16.9 bp, and the fall of 27.6 bp in the morning leg has $t = -3.6$, while the overnight leg is stable at about 13 to 17 bp and holds separately in 2011-2015 and 2016-2024. Closing-price studies understate the remaining drift because returns after the announcement have been weak since 2011. The overnight result survives alternative price sources, the exclusion of 2020, winsorization, placebo nights and the removal of the 2011-2012 meetings with a 12:30pm statement.",
+    "pdf": "pdf/0003.pdf",
+    "sources": [
+      "Boguth, O., Gregoire, V., and Martineau, C. 2019. \"Shaping Expectations and Coordinating Attention: The Unintended Consequences of FOMC Press Conferences.\" Journal of Financial and Quantitative Analysis 54(6): 2327-2353.",
+      "Kurov, A., Wolfe, M. H., and Gilbert, T. 2021. \"The Disappearing Pre-FOMC Announcement Drift.\" Finance Research Letters 40.",
+      "Lucca, D. O., and Moench, E. 2015. \"The Pre-FOMC Announcement Drift.\" Journal of Finance 70(1): 329-371.",
+      "Pan, J., and Peng, Q. 2024. \"The Pre-FOMC Drift in Long-Term Treasury Bonds.\" Working paper, SSRN 4764451.",
+      "Data: CRSP daily stock file and TAQ quotes via WRDS; FOMC dates from the Federal Reserve Board."
+    ],
+    "x_url": ""
+  },
+  {
+    "id": "0004",
+    "date": "2026-11-08",
+    "section": "urban",
+    "title": "Zipf's Law for US Cities, 2000-2024",
+    "intuition": "Zipf's law, under which a city's size is inversely proportional to its rank, is often treated as a constant of urban economics. In US data for 2000-2024 it holds only for metropolitan areas at particular cut-offs; incorporated cities follow a clean power law, but with an exponent clearly above 1.",
+    "statement": "In US data for 2000-2024, Zipf's law with $\\zeta = 1$ fails for both common city definitions: for metropolitan areas the exponent for the largest 135 is about 1.1 and not statistically different from 1, but the rank-size relation is curved, so a single power law is rejected; for incorporated cities the relation is straight, but $\\zeta \\approx 1.45$ is statistically above 1.",
+    "summary": "Zipf's law says that the number of cities larger than $S$ is proportional to $S^{-\\zeta}$ with $\\zeta = 1$, the value implied by city growth unrelated to size (Gabaix 1999). Using Census Bureau population files for metropolitan statistical areas (2010, 2020, 2024) and incorporated places (2000, 2010, 2020, 2024), the note estimates $\\zeta$ by the rank minus one half regression of Gabaix and Ibragimov (2011) and applies their curvature test. For metropolitan areas the curvature statistic is $-2.3$ to $-2.7$ for the largest 135 and $-3.0$ for the largest 250, and the estimate falls from 1.42 for the top 50 to 0.90 for all metros, so $\\zeta$ is within 0.05 of 1 only for cut-offs between about 190 and 320. For cities proper the curvature statistic is near zero, while $\\zeta$ is 1.41 to 1.46 for the largest 135 ($t$ of 2.4 to 2.6 against 1). Both patterns are stable from 2000 to 2024, so an exponent of 1 appears only for metropolitan areas at particular cut-offs.",
+    "pdf": "pdf/0004.pdf",
+    "sources": [
+      "Bee, M., Riccaboni, M., and Schiavo, S. 2013. \"The Size Distribution of US Cities: Not Pareto, Even in the Tail.\" Economics Letters 120(2): 232-237.",
+      "Eeckhout, J. 2004. \"Gibrat's Law for (All) Cities.\" American Economic Review 94(5): 1429-1451.",
+      "Gabaix, X. 1999. \"Zipf's Law for Cities: An Explanation.\" Quarterly Journal of Economics 114(3): 739-767.",
+      "Gabaix, X., and Ibragimov, R. 2011. \"Rank - 1/2: A Simple Way to Improve the OLS Estimation of Tail Exponents.\" Journal of Business and Economic Statistics 29(1): 24-39.",
+      "Rozenfeld, H. D., Rybski, D., Gabaix, X., and Makse, H. A. 2011. \"The Area and Population of Cities: New Insights from a Different Perspective on Cities.\" American Economic Review 101(5): 2205-2225.",
+      "Soo, K. T. 2005. \"Zipf's Law for Cities: A Cross-Country Investigation.\" Regional Science and Urban Economics 35(3): 239-263.",
+      "Data: US Census Bureau population estimates files (public)."
+    ],
+    "x_url": ""
+  },
+  {
+    "id": "0005",
+    "date": "2026-11-08",
+    "section": "game-theory",
+    "title": "Who Bargains Next? Recognition and Cooperative Allocations",
+    "intuition": "Who proposes after an offer is rejected looks like a procedural detail, but it changes the outcome of coalitional bargaining. If the player who rejects proposes next, patient players no longer reach the Shapley value: every player's deviation from an equal share is amplified.",
+    "statement": "In three-player coalitional bargaining with proposer departure probability $q$, both protocols have a unique subgame-perfect equilibrium payoff vector with immediate efficient agreement: $E_0 = e + d(s-e)$ when the next proposer after a surviving rejection is drawn uniformly, and $E_1 = e + d(1+a)(s-e)$ when the rejector proposes next, where $s$ is the Shapley value, $e$ the equal split, $a = \\delta(1-q)$ and $d = \\delta q/(1-a)$. The patient limits are $s$ and $s + (1-q)(s-e)$, which coincide if and only if $c_1 = c_2 = c_3$.",
+    "summary": "Hart and Mas-Colell (1996) showed that random proposers with a risk that a rejected proposer drops out lead patient players to the Shapley value. This note compares two anonymous protocols for three players with transferable utility that share coalition opportunities, discounting and departure risk, and differ only in who proposes after a surviving rejection: a uniformly drawn player ($P_0$) or the rejector ($P_1$). Every subgame-perfect equilibrium, including mixed and history-dependent ones, agrees immediately on the grand coalition, and each protocol has a unique payoff vector. Under $P_1$ every player's patient deviation from the equal share is multiplied by $2-q$, so players whose Shapley value exceeds one third gain and the others lose; for $q = 7/8$ and $(c_1, c_2, c_3) = (1/4, 1/20, 1/20)$ the patient payoffs are $(4/15, 11/30, 11/30)$ under $P_0$ and $(31/120, 89/240, 89/240)$ under $P_1$. Specifying who controls bargaining after disagreement is therefore part of specifying the outcome.",
+    "pdf": "pdf/0005.pdf",
+    "sources": [
+      "Britz, V., Herings, P. J.-J., and Predtetchinski, A. 2014. \"On the convergence to the Nash bargaining solution for action-dependent bargaining protocols.\" Games and Economic Behavior 86: 178-183.",
+      "Calvo, E., and Gutierrez-Lopez, E. 2016. \"A strategic approach for the discounted Shapley values.\" Theory and Decision 80: 271-293.",
+      "Gul, F. 1989. \"Bargaining Foundations of Shapley Value.\" Econometrica 57: 81-95.",
+      "Hart, S., and Mas-Colell, A. 1996. \"Bargaining and Value.\" Econometrica 64: 357-380.",
+      "Kawamori, T. 2008. \"A note on selection of proposers in coalitional bargaining.\" International Journal of Game Theory 37: 525-532.",
+      "Kawamori, T. 2016. \"Hart-Mas-Colell implementation of the discounted Shapley value.\" Theory and Decision 81: 357-369."
+    ],
+    "x_url": ""
+  },
+  {
+    "id": "0006",
+    "date": "2026-11-08",
+    "section": "sports",
+    "title": "The Pythagorean Expectation, 45 Seasons Later",
+    "intuition": "Bill James's formula linking a baseball team's wins to its runs scored and allowed has worked unchanged in the 45 seasons since it was published. Records that beat the formula are mostly luck and do not carry over, so a team's quality is better read from its runs than from its wins.",
+    "statement": "Bill James's Pythagorean expectation $W/L = (RS/RA)^k$ survives a 45-season out-of-sample test: the exponent is $k = 1.847$ on 1901-1980 and $k = 1.848$ on 1981-2025, the 1901-1980 fit predicts later wins with an error of about 4 per 162 games and explains 88% of their variation, and wins above or below the formula do not persist: about 92% disappears the next season.",
+    "summary": "The Pythagorean expectation, published around 1980, relates a baseball team's ratio of wins to losses to its ratio of runs scored to runs allowed, and every season after 1980 provides a clean holdout sample. Using 2,706 Major League team-seasons from the Lahman Baseball Database, the note estimates $k$ as the slope of $\\log(W/L)$ on $\\log(RS/RA)$ before and after publication and finds the same value to the third decimal, with out-of-sample root mean squared error of 4.06 wins against 4.16 for James's original $k = 2$. The exponent varies by decade between 1.74 and 1.98 but has no trend, and letting it rise with runs per game does not improve the out-of-sample error. Wins above the formula (luck, with a standard deviation of 4.2 wins) have a next-season correlation of only 0.04 before 1980 and 0.08 after, and in forecasting next season's record the predicted share receives about three times the weight of the actual share. The same task, separating a persistent component from a large transitory one, arises when judging fund managers, executives or forecasters from short records.",
+    "pdf": "pdf/0006.pdf",
+    "sources": [
+      "Davenport, C., and Woolner, K. 1999. \"Revisiting the Pythagorean Theorem: Putting Bill James' Pythagorean Theorem to the Test.\" Baseball Prospectus.",
+      "Friendly, M., Dalzell, C., Monkman, M., and Murphy, D. 2026. \"Lahman: Sean 'Lahman' Baseball Database.\" R package version 14.0-0.",
+      "James, B. 1980. The Bill James Baseball Abstract. Self-published.",
+      "Miller, S. J. 2007. \"A Derivation of the Pythagorean Won-Loss Formula in Baseball.\" Chance 20(1): 40-48.",
+      "Data: Lahman Baseball Database (public)."
+    ],
+    "x_url": ""
+  },
+  {
+    "id": "0007",
+    "date": "2026-11-08",
+    "section": "consumer",
+    "title": "Engel's Law Holds for Groceries, Not for Restaurants",
+    "intuition": "Poorer households spend a larger share of their budget on food, and this still holds in US data up to 2024. The pattern comes entirely from groceries: spending on restaurants rises in proportion to the budget in every income group.",
+    "statement": "In the US Consumer Expenditure Survey, Engel's law holds in every year from 1984 to 2024: across the five income groups the elasticity of food spending with respect to total spending averages 0.77 and is below one in all 41 years. The law is driven entirely by groceries (elasticity 0.58), while spending on food away from home has an elasticity of 1.07, above one in 40 of 41 years.",
+    "summary": "Engel (1857) observed that poorer families spend a larger share of their budget on food, so that food has an income elasticity below one. Using published BLS Consumer Expenditure Survey means for each income fifth, 1984-2024, the note estimates each year's elasticity as the slope of log spending on log total expenditures across the five groups, separately for all food, groceries and eating out. In 2024 groceries fell from 11.0% of spending in the lowest fifth to 6.2% in the highest, while eating out took between 4.7% and 5.2% in every group; for the average household the food share fell from 14.7% in 1984-1993 to 12.8% in 2005-2019 and has not fallen since. The official US poverty line still rests on Orshansky's multiplier of three times a minimal food budget, whereas 2024 food shares of 15.7% in the lowest fifth and 12.9% on average would imply a multiplier of about 6 to 8. Because eating out rises at least in proportion to the budget, methods that use Engel curves to estimate CPI bias should rely on groceries rather than on all food.",
+    "pdf": "pdf/0007.pdf",
+    "sources": [
+      "Chai, A., and Moneta, A. 2010. \"Retrospectives: Engel Curves.\" Journal of Economic Perspectives 24(1): 225-240.",
+      "Costa, D. L. 2001. \"Estimating Real Income in the United States from 1888 to 1994: Correcting CPI Bias Using Engel Curves.\" Journal of Political Economy 109(6): 1288-1310.",
+      "Engel, E. 1857. \"Die Productions- und Consumtionsverhaeltnisse des Koenigreichs Sachsen.\" Zeitschrift des Statistischen Bureaus des Koeniglich Saechsischen Ministeriums des Innern 8-9: 1-54.",
+      "Hamilton, B. W. 2001. \"Using Engel's Law to Estimate CPI Bias.\" American Economic Review 91(3): 619-630.",
+      "Houthakker, H. S. 1957. \"An International Comparison of Household Expenditure Patterns, Commemorating the Centenary of Engel's Law.\" Econometrica 25(4): 532-551.",
+      "Orshansky, M. 1965. \"Counting the Poor: Another Look at the Poverty Profile.\" Social Security Bulletin 28(1): 3-29.",
+      "Data: US Bureau of Labor Statistics, Consumer Expenditure Survey (public)."
+    ],
+    "x_url": ""
+  },
+  {
+    "id": "0008",
+    "date": "2026-11-08",
+    "section": "information",
+    "title": "Wisdom of Crowds with Many Separate Groups: A Correction to Golub and Jackson (2010)",
+    "intuition": "Golub and Jackson (2010) showed that a society that averages its neighbours' opinions learns the truth exactly when no one keeps a large influence. That equivalence breaks when the society splits into many separate groups: each group may learn well, yet with so many groups at least one of them is almost sure to end far from the truth. The note gives a counterexample, a corrected statement, and a sharp rule for equal-sized groups: their size must grow faster than the logarithm of their number.",
+    "statement": "For networks with a growing number of separate closed groups, vanishing maximal influence $s_1(n) \\to 0$ does not imply wisdom: a society of $4^m$ groups of $m$ agents satisfies every assumption of Golub and Jackson (2010) with $s_1(n) = 1/m$, yet with probability $1-(1-2^{-m})^{4^m} \\to 1$ some agent ends at belief one when the truth is one half. In general, the society is wise if and only if $\\sum_{c=1}^{K_n} \\Pr(|Y_c - \\mu| > \\varepsilon) \\to 0$ for every $\\varepsilon > 0$, where $Y_c$ is the consensus of closed group $c$; the original equivalence holds when the number of groups $K_n$ is bounded, and for $K_n$ equally weighted groups of size $m_n$ with fair-coin signals, the society is wise if and only if $m_n \\to \\infty$ and $(\\log K_n)/m_n \\to 0$.",
+    "summary": "Under naive DeGroot learning, Proposition 2 of Golub and Jackson (2010) states that a sequence of convergent networks is wise, meaning all agents are simultaneously close to the truth, if and only if the largest influence vanishes, and the paper states that its results apply to all convergent networks. The proof shows that each agent learns individually, but wisdom requires all agents to be right at the same time, and with many independent closed groups the two requirements differ: in a network of $4^m$ groups of $m$ agents with fair-coin signals, the largest influence is $1/m$ and Theorem 4's balance and minimal in-dispersion conditions hold, yet the probability that some group is unanimously wrong tends to one. The corrected proposition characterizes wisdom by the sum over groups of each group's probability of error, keeps the 'only if' direction, restores the original equivalence when the number of closed groups is bounded (including every strongly connected network), and gives a distribution-free sufficient condition, $\\max_c Q_c (1 + \\log K_n) \\to 0$. For equally weighted groups this condition is sharp: using Hoeffding's inequality and a method-of-types bound, the society is wise exactly when group size grows faster than the logarithm of the number of groups. Vanishing maximal influence still makes the society accurate on average, Theorem 1 is not exposed because its out-dispersion condition bounds the number of closed groups, and the paper's central message, that a society learns well only if no agent's influence stays large, is unaffected.",
+    "pdf": "pdf/0008.pdf",
+    "sources": [
+      "Cover, T. M., and Thomas, J. A. 2006. Elements of Information Theory, 2nd ed. Hoboken, NJ: Wiley.",
+      "Golub, B., and Jackson, M. O. 2010. \"Naive Learning in Social Networks and the Wisdom of Crowds.\" American Economic Journal: Microeconomics 2(1): 112-149.",
+      "Hoeffding, W. 1963. \"Probability Inequalities for Sums of Bounded Random Variables.\" Journal of the American Statistical Association 58(301): 13-30."
+    ],
+    "x_url": ""
+  }
+]
