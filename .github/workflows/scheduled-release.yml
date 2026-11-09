@@ -1,0 +1,65 @@
+# Publishes a prepared note at a set time.
+# The note is prepared on branch "release-0012". At the scheduled time this
+# workflow merges that branch into main, deletes the branch and asks GitHub
+# Pages to rebuild. If the branch does not exist, the workflow does nothing.
+
+name: scheduled-release
+
+on:
+  schedule:
+    # 03:00 UTC on 10 November (03:00 London time, GMT).
+    - cron: "0 3 10 11 *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Check only: do not merge or publish"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: release-0012
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Check that the release branch exists
+        id: check
+        run: |
+          if git ls-remote --exit-code --heads origin "$BRANCH" > /dev/null; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            git fetch origin "$BRANCH"
+            echo "Files in the release:"
+            git diff --stat main "origin/$BRANCH"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "Branch $BRANCH not found: nothing to release."
+          fi
+
+      - name: Merge into main
+        if: steps.check.outputs.found == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git merge --ff-only "origin/$BRANCH" || git merge --no-edit "origin/$BRANCH"
+          git log --oneline -3
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry run: merge works; nothing pushed."
+          else
+            git push origin main
+            git push origin --delete "$BRANCH"
+          fi
+
+      - name: Request a GitHub Pages build
+        run: |
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --jq '.status'
