@@ -10,5 +10,6 @@
   {"id": "macro", "name": "Macroeconomics", "description": "Aggregate outcomes: growth, business cycles, monetary and fiscal policy."},
   {"id": "urban", "name": "Urban Economics", "description": "The size, growth and spatial distribution of cities and regions."},
   {"id": "sports", "name": "Sports Economics", "description": "Performance, skill and luck in sports, and what they reveal about evaluation and markets."},
-  {"id": "consumer", "name": "Consumer Economics", "description": "Household spending, consumer demand and living standards."}
+  {"id": "consumer", "name": "Consumer Economics", "description": "Household spending, consumer demand and living standards."},
+  {"id": "io", "name": "Industrial Organization", "description": "Firms and markets: firm size, market structure, competition and pricing."}
 ]

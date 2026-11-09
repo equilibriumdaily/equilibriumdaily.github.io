@@ -157,5 +157,23 @@
       "Acemoglu, D., and Azar, P. D. 2020. \"Endogenous Production Networks.\" Econometrica 88(1): 33-82, and its online supplement."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0010",
+    "date": "2026-11-09",
+    "section": "io",
+    "title": "Do US Firm Sizes Follow Zipf's Law? In the Middle, Yes. At the Top, No",
+    "intuition": "Axtell (2001) found that US firm sizes follow Zipf's law: a firm ten times larger is ten times rarer, from the smallest firms to the largest. In public data up to 2023 this holds remarkably well between about 5 and 10,000 employees, but not at the top: Zipf predicts a largest US firm of about 12 million employees, while the largest actual employer has about 2 million worldwide. The giants are too few and too small, which matters because Zipf is the case in which shocks to the largest firms move the whole economy.",
+    "statement": "In the Census Business Dynamics Statistics for 1978-2023, the share of US firms with at least $s$ employees falls like $s^{-\\alpha}$ with $\\alpha$ between 0.94 and 1.00 for $5 \\le s \\le 10{,}000$ in every year, as Zipf's law requires. The law fails at the top: the mean size of firms with 10,000 or more employees implies a tail exponent of about 1.32 in 2023 (a Hill estimate of 1.29 on the 200 largest Compustat employers), and on employees, sales and market value alike the 50 largest listed firms have exponents between about 1.4 and 1.9.",
+    "summary": "Zipf's law for firm sizes, $\\Pr(S \\ge s) \\propto s^{-\\alpha}$ with $\\alpha = 1$, is the benchmark outcome of random proportional growth and governs whether idiosyncratic shocks to large firms matter for aggregate fluctuations (Gabaix 2011). Using the public Census Business Dynamics Statistics for 1978-2023 and Compustat for the largest employers, the note finds slopes between 0.94 and 1.00 from 5 to 10,000 employees in every year, too few firms with 1-4 employees, and a clearly thinner top. Extrapolating Zipf from the 1,210 firms with 10,000 or more employees in 2023 predicts a largest firm of about 12 million employees, against 2.1 million for the largest actual employer, and matching the observed mean of that class requires an exponent of 1.32. By headcount the top has moved toward Zipf, from exponents of 1.7-1.9 in the 1980s and 1990s to about 1.35 today, while the middle of the distribution did not change. Measuring size by sales or market value does not rescue the law: the 500 largest listed firms look Zipf on every measure, but the 50 largest are too similar in size on all of them.",
+    "pdf": "pdf/0010.pdf",
+    "sources": [
+      "Axtell, R. L. 2001. \"Zipf Distribution of U.S. Firm Sizes.\" Science 293: 1818-1820.",
+      "Gabaix, X. 2011. \"The Granular Origins of Aggregate Fluctuations.\" Econometrica 79(3): 733-772.",
+      "Kondo, I. O., Lewis, L. T., and Stella, A. 2023. \"Heavy Tailed but not Zipf: Firm and Establishment Size in the United States.\" Journal of Applied Econometrics 38(5): 767-785.",
+      "U.S. Census Bureau. Business Dynamics Statistics, 1978-2023 release.",
+      "Data: Census Business Dynamics Statistics (public) and Compustat."
+    ],
+    "x_url": ""
   }
 ]
