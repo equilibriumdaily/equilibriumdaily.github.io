@@ -63,6 +63,8 @@ jobs:
       - name: Squash the release branch onto main
         if: steps.find.outputs.found == 'true'
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git merge --squash --no-commit "origin/${{ steps.find.outputs.branch }}"
           grep -q "\"id\": \"${{ steps.find.outputs.id }}\"" notes.json || { echo "notes.json has no entry ${{ steps.find.outputs.id }}"; exit 1; }
           test -f "pdf/${{ steps.find.outputs.id }}.pdf" || { echo "Missing pdf/${{ steps.find.outputs.id }}.pdf"; exit 1; }
@@ -82,8 +84,6 @@ jobs:
       - name: Commit as the bot and publish
         if: steps.find.outputs.found == 'true'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Add note ${{ steps.find.outputs.id }}"
           git log --format='%h %an <%ae> %ad %s' --date=iso -2
