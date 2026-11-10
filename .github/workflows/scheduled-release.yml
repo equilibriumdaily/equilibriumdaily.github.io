@@ -1,18 +1,24 @@
-# Publishes a prepared note at a set time.
-# The note is prepared on branch "release-0013". At the scheduled time this
-# workflow merges that branch into main, deletes the branch and asks GitHub
-# Pages to rebuild. If the branch does not exist, the workflow does nothing.
+# Publishes one prepared note per day at a fixed time.
+#
+# Prepare a note on a branch named "release-<id>" (for example release-0014)
+# containing at least the PDF and the notes.json entry. Every day at 01:37 UTC
+# this workflow takes the oldest release-* branch, squashes it onto main,
+# rebuilds every page with tools/build.js, commits the result as
+# github-actions[bot] with a UTC timestamp, deletes the branch and asks GitHub
+# Pages to rebuild. If no release-* branch exists, it does nothing.
+#
+# Main therefore only ever receives commits authored by the bot in UTC; the
+# individual commits on the release branch are not carried into main.
 
 name: scheduled-release
 
 on:
   schedule:
-    # 01:37 UTC on 11 November (02:37 Berlin time, CET).
-    - cron: "37 1 11 11 *"
+    - cron: "37 1 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
-        description: "Check only: do not merge or publish"
+        description: "Check only: do not commit or publish"
         type: boolean
         default: true
 
@@ -20,46 +26,76 @@ permissions:
   contents: write
   pages: write
 
+concurrency:
+  group: scheduled-release
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
     env:
-      BRANCH: release-0013
       DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
       GH_TOKEN: ${{ github.token }}
+      TZ: UTC
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
 
-      - name: Check that the release branch exists
-        id: check
+      - name: Find the oldest release branch
+        id: find
         run: |
-          if git ls-remote --exit-code --heads origin "$BRANCH" > /dev/null; then
-            echo "found=true" >> "$GITHUB_OUTPUT"
-            git fetch origin "$BRANCH"
-            echo "Files in the release:"
-            git diff --stat main "origin/$BRANCH"
-          else
+          BRANCH=$(git ls-remote --heads origin 'release-*' | awk '{print $2}' | sed 's#^refs/heads/##' | sort | head -n 1)
+          if [ -z "$BRANCH" ]; then
             echo "found=false" >> "$GITHUB_OUTPUT"
-            echo "Branch $BRANCH not found: nothing to release."
+            echo "No release-* branch: nothing to release."
+            exit 0
           fi
+          ID="${BRANCH#release-}"
+          echo "found=true" >> "$GITHUB_OUTPUT"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          git fetch origin "$BRANCH"
+          echo "Releasing $BRANCH (note $ID). Changes against main:"
+          git diff --stat main "origin/$BRANCH"
 
-      - name: Merge into main
-        if: steps.check.outputs.found == 'true'
+      - name: Squash the release branch onto main
+        if: steps.find.outputs.found == 'true'
+        run: |
+          git merge --squash --no-commit "origin/${{ steps.find.outputs.branch }}"
+          grep -q "\"id\": \"${{ steps.find.outputs.id }}\"" notes.json || { echo "notes.json has no entry ${{ steps.find.outputs.id }}"; exit 1; }
+          test -f "pdf/${{ steps.find.outputs.id }}.pdf" || { echo "Missing pdf/${{ steps.find.outputs.id }}.pdf"; exit 1; }
+
+      - uses: actions/setup-node@v4
+        if: steps.find.outputs.found == 'true'
+        with:
+          node-version: "20"
+
+      - name: Rebuild the site
+        if: steps.find.outputs.found == 'true'
+        run: |
+          npm install --no-save --no-package-lock katex@0.16.11
+          node tools/build.js
+          rm -rf node_modules
+
+      - name: Commit as the bot and publish
+        if: steps.find.outputs.found == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git merge --ff-only "origin/$BRANCH" || git merge --no-edit "origin/$BRANCH"
-          git log --oneline -3
+          git add -A
+          git commit -m "Add note ${{ steps.find.outputs.id }}"
+          git log --format='%h %an <%ae> %ad %s' --date=iso -2
+          git show --stat --format= HEAD
           if [ "$DRY_RUN" = "true" ]; then
-            echo "Dry run: merge works; nothing pushed."
+            echo "Dry run: release builds and commits cleanly; nothing pushed."
           else
             git push origin main
-            git push origin --delete "$BRANCH"
+            git push origin --delete "${{ steps.find.outputs.branch }}"
           fi
 
       - name: Request a GitHub Pages build
+        if: steps.find.outputs.found == 'true' && env.DRY_RUN != 'true'
         run: |
           gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --jq '.status'
