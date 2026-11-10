@@ -1,5 +1,5 @@
 # Publishes a prepared note at a set time.
-# The note is prepared on branch "release-0012". At the scheduled time this
+# The note is prepared on branch "release-0013". At the scheduled time this
 # workflow merges that branch into main, deletes the branch and asks GitHub
 # Pages to rebuild. If the branch does not exist, the workflow does nothing.
 
@@ -7,8 +7,8 @@ name: scheduled-release
 
 on:
   schedule:
-    # 03:00 UTC on 10 November (03:00 London time, GMT).
-    - cron: "0 3 10 11 *"
+    # 01:37 UTC on 11 November (02:37 Berlin time, CET).
+    - cron: "37 1 11 11 *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -24,7 +24,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     env:
-      BRANCH: release-0012
+      BRANCH: release-0013
       DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
       GH_TOKEN: ${{ github.token }}
     steps:
