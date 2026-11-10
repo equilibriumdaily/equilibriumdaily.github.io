@@ -1,7 +1,8 @@
 # Publishes one prepared note per day at a fixed time.
 #
 # Prepare a note on a branch named "release-<id>" (for example release-0014)
-# containing at least the PDF and the notes.json entry. Every day at 01:37 UTC
+# containing at least the PDF and the notes.json entry. To queue several notes,
+# create each release branch from the previous one. Every day at 01:37 UTC
 # this workflow takes the oldest release-* branch, squashes it onto main,
 # rebuilds every page with tools/build.js, commits the result as
 # github-actions[bot] with a UTC timestamp, deletes the branch and asks GitHub
@@ -65,8 +66,26 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git merge --squash --no-commit "origin/${{ steps.find.outputs.branch }}"
-          grep -q "\"id\": \"${{ steps.find.outputs.id }}\"" notes.json || { echo "notes.json has no entry ${{ steps.find.outputs.id }}"; exit 1; }
+          # A release branch may be stacked on an earlier release branch that
+          # is already published. Where both changed the same lines, take the
+          # release branch's version, then check that no note on main is lost.
+          git merge --squash --no-commit -X theirs "origin/${{ steps.find.outputs.branch }}"
+          python3 - "${{ steps.find.outputs.id }}" <<'PY'
+          import json, subprocess, sys
+          new_id = sys.argv[1]
+          old = json.loads(subprocess.check_output(["git", "show", "HEAD:notes.json"]))
+          new = json.load(open("notes.json"))
+          old_ids = [n["id"] for n in old]
+          new_ids = [n["id"] for n in new]
+          missing = sorted(set(old_ids) - set(new_ids))
+          if missing:
+              sys.exit("Release would remove notes already on main: " + ", ".join(missing))
+          if new_id not in new_ids:
+              sys.exit("notes.json has no entry " + new_id)
+          if len(new_ids) != len(set(new_ids)):
+              sys.exit("Duplicate note ids in notes.json")
+          print("notes.json OK: %d notes, adds %s" % (len(new_ids), ", ".join(sorted(set(new_ids) - set(old_ids)))))
+          PY
           test -f "pdf/${{ steps.find.outputs.id }}.pdf" || { echo "Missing pdf/${{ steps.find.outputs.id }}.pdf"; exit 1; }
 
       - uses: actions/setup-node@v4
