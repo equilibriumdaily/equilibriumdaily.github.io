@@ -242,5 +242,26 @@
       "Yan, J.-A. 1980. \"Caracterisation d'une classe d'ensembles convexes de L1 ou H1.\" Seminaire de Probabilites XIV, Lecture Notes in Mathematics 784: 220-222."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0015",
+    "date": "2026-11-11",
+    "section": "asset-pricing",
+    "title": "Rough Heston Variance at Zero: Negative Moments, Conditional Paths and a Test for the Zero Event",
+    "intuition": "In the rough Heston model the instantaneous variance is exactly zero with positive probability at every date. Without drift, the variance also puts so much probability just above zero that the expected inverse variance is infinite even after the zero atom is excluded. One root of a Gamma-function equation sets both how much probability lies near zero and how fast the expected variance falls into a zero.",
+    "statement": "In the drift-free rough Heston model with Hurst parameter $H \\in (0, 1/2)$, $E[V_t^{-q}; V_t > 0] < \\infty$ if and only if $q < \\delta_\\beta$, where $\\delta_\\beta = (p_\\beta - \\beta)/(2H) \\in (0,1)$ and $p_\\beta$ solves a Gamma-function equation, so $E[V_t^{-1}; V_t > 0] = \\infty$ for every $H$. Conditional on $V_T = 0$, the expected variance path is $v \\sum_n A_n (1 - s/T)^{\\rho_n}$ with positive weights summing to one and leading exponent $\\rho_\\beta = 2H(1 + \\delta_\\beta)$, and $\\{V_T = 0\\} = \\{\\int_0^T V_s (T-s)^{-2H-1} ds < \\infty\\}$ almost surely.",
+    "summary": "The rough Heston variance reaches zero with positive probability at every fixed date, and without drift the atom is known in closed form. Using the affine transform formula and the maximal solution of the fractional Riccati equation, the note compares the gap between the maximal and unit Riccati solutions with powers of time through a first-contact property of the Riemann-Liouville derivative. This shows that negative moments on the event of positive variance are finite exactly below a cutoff $\\delta_\\beta$, which lies strictly between zero and one for every Hurst parameter (about 0.26 at $H = 0.25$, 0.59 at $H = 0.1$ and 0.08 at $H = 0.4$), and that $\\log P(0 < V_t \\le x)/\\log x \\to \\delta_\\beta$. Conditioning on zero variance at $T$ adds an explicit drift, and the conditional mean solves a renewal equation whose Laplace transform is $1/\\Psi$ with $\\Psi(z) = z + \\lambda_\\beta \\Gamma(z+1)/\\Gamma(z+\\beta)$; it is a positive mixture of powers of the time remaining, led by $\\rho_\\beta = 2H(1 + \\delta_\\beta)$ with second exponent exactly $2\\beta$. The zero event coincides with finiteness of one weighted integral of past variance, whose conditional mean is proportional to minus the log probability of the zero, an instance of the entropy-energy identity. Finally, two exact solutions driven by the same Brownian motion can separate only by changing sign from the first instant; pathwise uniqueness remains open.",
+    "pdf": "pdf/0015.pdf",
+    "sources": [
+      "Abi Jaber, E., Larsson, M., and Pulido, S. 2019. \"Affine Volterra Processes.\" Annals of Applied Probability 29: 3155-3200.",
+      "Bourdon, A., and Jeannin, T. 2026. \"Moments in Rough Bergomi and Boundary Attainment in Rough Heston.\" arXiv:2606.07482.",
+      "Friesen, M., Gerhold, S., and Wiedermann, K. 2026. \"Boundary Behaviour of the Volterra Square-Root Process.\" arXiv:2606.07290.",
+      "Kuznetsov, A., Kyprianou, A. E., and Pardo, J. C. 2012. \"Meromorphic Levy Processes and Their Fluctuation Identities.\" Annals of Applied Probability 22: 1101-1135.",
+      "Lehec, J. 2013. \"Representation Formula for the Entropy and Functional Inequalities.\" Annales de l'Institut Henri Poincare, Probabilites et Statistiques 49: 885-899.",
+      "Mytnik, L., and Salisbury, T. S. 2015. \"Uniqueness for Volterra-Type Stochastic Integral Equations.\" arXiv:1502.05513.",
+      "Promel, D. J., and Scheffels, D. 2025. \"Pathwise Uniqueness for Singular Stochastic Volterra Equations with Hoelder Coefficients.\" Stochastics and Partial Differential Equations: Analysis and Computations.",
+      "Samko, S. G., Kilbas, A. A., and Marichev, O. I. 1993. Fractional Integrals and Derivatives: Theory and Applications. Gordon and Breach."
+    ],
+    "x_url": ""
   }
 ]
