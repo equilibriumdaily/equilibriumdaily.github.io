@@ -17,9 +17,11 @@ Generated pages: `index.html`, `archive.html`, `section.html`, `note.html`, `abo
 
 ## Publishing a note
 
-1. Add the PDF to `pdf/` and an entry to `notes.json`.
-2. Run `npm install katex@0.16.11` once, then `node tools/build.js`.
-3. Commit the JSON, the PDF and the regenerated HTML.
+1. Create a branch named `release-<id>` (for example `release-0014`) from `main`.
+2. On that branch, add the PDF to `pdf/` and an entry to `notes.json`. Regenerated HTML is optional: the release rebuilds every page.
+3. The `scheduled-release` workflow runs daily at 01:37 UTC. It publishes the oldest `release-*` branch as a single commit on `main`, then deletes the branch. One note is published per day.
+
+To rebuild locally: `npm install katex@0.16.11`, then `node tools/build.js`.
 
 ## Reporting errors
 
