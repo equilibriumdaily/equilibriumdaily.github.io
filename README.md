@@ -21,7 +21,18 @@ Generated pages: `index.html`, `archive.html`, `section.html`, `note.html`, `abo
 2. On that branch, add the PDF to `pdf/` and an entry to `notes.json`. Regenerated HTML is optional: the release rebuilds every page.
 3. The `scheduled-release` workflow runs daily at 01:37 UTC. It publishes the oldest `release-*` branch as a single commit on `main`, then deletes the branch. One note is published per day.
 
-To rebuild locally: `npm install katex@0.16.11`, then `node tools/build.js`.
+To rebuild locally: `npm install katex@0.16.11 @resvg/resvg-js@2.6.2`, then `node tools/build.js`.
+
+## Search and discovery
+
+`tools/build.js` also generates, on every release:
+
+- `sitemap.xml`, `robots.txt` and an Atom feed (`feed.xml`) with the full text of each note;
+- `llms.txt` and `llms-full.txt` for AI systems, and a Markdown copy of each note (`notes/<id>.md`);
+- a 1200x630 social preview card for each note and for the site (`og/<id>.png`, `og/site.png`), drawn with `@resvg/resvg-js` when it is installed;
+- `favicon.svg`, `.nojekyll` and the IndexNow key file.
+
+Note pages carry schema.org JSON-LD (ScholarlyArticle, BreadcrumbList), Open Graph and X card tags with the preview image, Google Scholar `citation_*` tags, and links to related notes in the same section. After each release the workflow notifies IndexNow (Bing and others) of the changed pages.
 
 ## Reporting errors
 

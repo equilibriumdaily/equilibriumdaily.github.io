@@ -96,7 +96,7 @@ jobs:
       - name: Rebuild the site
         if: steps.find.outputs.found == 'true'
         run: |
-          npm install --no-save --no-package-lock katex@0.16.11
+          npm install --no-save --no-package-lock katex@0.16.11 @resvg/resvg-js@2.6.2
           node tools/build.js
           rm -rf node_modules
 
@@ -137,7 +137,8 @@ jobs:
           note = next(n for n in json.load(open("notes.json")) if n["id"] == note_id)
           urls = [site + "/", site + "/archive.html", site + "/notes/" + note_id + ".html",
                   site + "/sections/" + note["section"] + ".html", site + "/feed.xml",
-                  site + "/sitemap.xml", site + "/llms.txt", site + "/llms-full.txt"]
+                  site + "/sitemap.xml", site + "/llms.txt", site + "/llms-full.txt",
+                  site + "/notes/" + note_id + ".md"]
           body = json.dumps({"host": "equilibriumdaily.github.io", "key": keys[0],
                              "keyLocation": site + "/" + keys[0] + ".txt", "urlList": urls}).encode()
           req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,

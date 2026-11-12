@@ -26,6 +26,10 @@
 const fs = require("fs");
 const path = require("path");
 const katex = require("katex");
+// Optional: renders social preview cards (og/*.png). If it is not installed,
+// existing cards are kept and no new ones are drawn.
+let Resvg = null;
+try { Resvg = require("@resvg/resvg-js").Resvg; } catch (e) { Resvg = null; }
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE = "https://equilibriumdaily.github.io";
@@ -174,8 +178,21 @@ function shell(opts) {
 <meta property="og:title" content="${esc(opts.title || SITE_NAME)}">
 <meta property="og:description" content="${ogDesc}">
 <meta property="og:url" content="${SITE}${opts.canonical}">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="${X_HANDLE}">
+`;
+    const img = opts.image || cardUrl("site");
+    if (img) {
+      head += `<meta property="og:image" content="${img}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(opts.title || SITE_NAME)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${img}">
+`;
+    } else {
+      head += `<meta name="twitter:card" content="summary">\n`;
+    }
+    head += `<meta name="twitter:site" content="${X_HANDLE}">
 <meta name="twitter:title" content="${esc(opts.title || SITE_NAME)}">
 <meta name="twitter:description" content="${ogDesc}">
 `;
@@ -238,6 +255,66 @@ function sectionList() {
     return `<li${c ? "" : ' class="is-empty"'}><a class="card" href="${sectionHref(s.id)}"><span class="card-top"><span class="card-name">${esc(s.name)}</span><span class="count">${plural(c, "note")}</span></span><span class="section-desc">${esc(s.description)}</span></a></li>`;
   }).join("") + "</ul>";
 }
+
+// ---------- social preview cards (og/<id>.png, og/site.png) ----------
+
+// Split text into at most maxLines lines of about width characters.
+function wrapWords(text, width, maxLines) {
+  const words = String(text).split(/\s+/);
+  const lines = [];
+  let line = "";
+  words.forEach((w) => {
+    if (!line) line = w;
+    else if ((line + " " + w).length <= width) line += " " + w;
+    else { lines.push(line); line = w; }
+  });
+  if (line) lines.push(line);
+  if (lines.length > maxLines) {
+    const kept = lines.slice(0, maxLines);
+    kept[maxLines - 1] = clip(kept[maxLines - 1] + " " + lines.slice(maxLines).join(" "), width);
+    return kept;
+  }
+  return lines;
+}
+
+function cardSvg(kicker, title, footer) {
+  // DejaVu Serif Bold averages about 0.62 em per character; the text area is 1020 px wide.
+  let size = 60, width = 26, maxLines = 4;
+  if (title.length > 80) { size = 48; width = 33; maxLines = 5; }
+  const lines = wrapWords(title, width, maxLines);
+  const lineH = Math.round(size * 1.18);
+  const top = 250;
+  const titleSvg = lines.map((l, i) => `<text x="90" y="${top + i * lineH}" font-family="DejaVu Serif" font-weight="bold" font-size="${size}" fill="#1c1d1f">${xmlEsc(l)}</text>`).join("");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#fbfaf7"/>
+<rect x="0" y="0" width="16" height="630" fill="#1f5f8b"/>
+<rect x="90" y="70" width="64" height="64" rx="12" fill="#1f5f8b"/><rect x="106" y="92" width="32" height="6" rx="3" fill="#fff"/><rect x="106" y="106" width="32" height="6" rx="3" fill="#fff"/>
+<text x="176" y="114" font-family="DejaVu Serif" font-weight="bold" font-size="34" fill="#1c1d1f">${SITE_NAME}</text>
+<text x="90" y="182" font-family="DejaVu Sans" font-size="26" fill="#1f5f8b">${xmlEsc(kicker)}</text>
+${titleSvg}
+<rect x="90" y="540" width="1020" height="2" fill="#e6e3dc"/>
+<text x="90" y="584" font-family="DejaVu Sans" font-size="24" fill="#5f6368">${xmlEsc(footer)}</text>
+</svg>
+`;
+}
+
+// Draw a card if the renderer is available; return its public URL if the file exists.
+function makeCard(name, kicker, title, footer) {
+  const file = path.join(ROOT, "og", name + ".png");
+  if (Resvg) {
+    const png = new Resvg(cardSvg(kicker, title, footer), { font: { loadSystemFonts: true, defaultFontFamily: "DejaVu Sans" } }).render().asPng();
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, png);
+  }
+  return fs.existsSync(file) ? SITE + "/og/" + name + ".png" : "";
+}
+
+const CARDS = {};
+function cardUrl(name) { return CARDS[name] || ""; }
+CARDS.site = makeCard("site", "Economics and finance, one result a day", "One result a day in economics and finance", "Each note states and proves one result, with a free PDF.");
+notes.forEach((n) => {
+  CARDS[n.id] = makeCard(n.id, `No. ${n.id}  ·  ${sectionName(n.section)}  ·  ${fmtDate(n.date)}`, n.title, "Equilibrium Daily  ·  statement, proof and PDF  ·  equilibriumdaily.github.io");
+});
 
 const sorted = notes.slice().sort(newestFirst);
 const oldestFirst = sorted.slice().reverse();
@@ -361,7 +438,19 @@ oldestFirst.forEach((n, idx) => {
   if (pdf) h += `<iframe class="pdf-frame" src="${esc(pdf)}" title="PDF of note ${esc(n.id)}" loading="lazy"></iframe>\n`;
 
   if (n.sources && n.sources.length) {
-    h += `<h2>Sources</h2>\n<ol class="sources">${n.sources.map((s) => "<li>" + esc(s) + "</li>").join("")}</ol>\n`;
+    // Web addresses in sources become links (for example citations of earlier notes).
+    const linkify = (s) => esc(s).replace(/https?:\/\/[^\s<]+[^\s<.,;:)]/g, (u) => {
+      const local = u.startsWith(SITE) ? u.slice(SITE.length) : "";
+      return local ? `<a href="${local}">${u}</a>` : `<a href="${u}" rel="noopener">${u}</a>`;
+    });
+    h += `<h2>Sources</h2>\n<ol class="sources">${n.sources.map((s) => "<li>" + linkify(s) + "</li>").join("")}</ol>\n`;
+  }
+  // Related notes: others in the same section, newest first; otherwise the latest notes.
+  let related = sorted.filter((m) => m.section === n.section && m.id !== n.id).slice(0, 3);
+  let relHead = `More in ${esc(sectionName(n.section))}`;
+  if (!related.length) { related = sorted.filter((m) => m.id !== n.id).slice(0, 3); relHead = "Latest notes"; }
+  if (related.length) {
+    h += `<div class="section-head"><h2>${relHead}</h2><span class="label"><a href="${relHead === "Latest notes" ? "/archive.html" : sectionHref(n.section)}">See all &rarr;</a></span></div>\n${noteList(related)}\n`;
   }
   if (prev || next) {
     h += '<nav class="prevnext" aria-label="More notes">';
@@ -389,11 +478,13 @@ oldestFirst.forEach((n, idx) => {
     "articleSection": secName,
     "about": secName,
     "identifier": "Equilibrium Daily No. " + n.id,
+    "keywords": [secName, "economics", "finance", "proof"].join(", "),
     "author": PUBLISHER,
     "publisher": PUBLISHER,
     "isPartOf": { "@type": "WebSite", "name": SITE_NAME, "url": SITE + "/" },
   };
-  if (pdfUrl) article.encoding = { "@type": "MediaObject", "contentUrl": pdfUrl, "encodingFormat": "application/pdf" };
+  if (cardUrl(n.id)) article.image = cardUrl(n.id);
+  if (pdfUrl) article.encoding ={ "@type": "MediaObject", "contentUrl": pdfUrl, "encodingFormat": "application/pdf" };
   if (n.sources && n.sources.length) article.citation = n.sources.map((s) => ({ "@type": "CreativeWork", "name": s }));
   let extra = jsonld(article) + jsonld(breadcrumbs([["Home", "/"], [secName, sectionHref(n.section)], [n.title, noteHref(n.id)]]));
   // Google Scholar (Highwire Press) tags.
@@ -417,6 +508,7 @@ oldestFirst.forEach((n, idx) => {
     description: plain(n.intuition || n.statement),
     canonical: noteHref(n.id),
     ogType: "article",
+    image: cardUrl(n.id),
     extraHead: extra,
     body: h,
   }));
@@ -514,6 +606,11 @@ sorted.forEach((n) => {
     <updated>${n.date}T00:00:00Z</updated>
     <category term="${xmlEsc(sectionName(n.section))}"/>
     <summary>${xmlEsc(plain(n.intuition || n.statement))}</summary>
+    <content type="html">${xmlEsc(
+      (n.intuition ? `<p>${esc(plain(n.intuition))}</p>` : "") +
+      `<p><strong>Result.</strong> ${esc(plain(n.statement))}</p><p>${esc(plain(n.summary))}</p>` +
+      (n.pdf ? `<p><a href="${SITE}${asset(n.pdf)}">Full note with proof (PDF)</a></p>` : "")
+    )}</content>
   </entry>
 `;
 });
