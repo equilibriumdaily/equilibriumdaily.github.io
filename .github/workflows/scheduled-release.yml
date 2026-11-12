@@ -118,3 +118,30 @@ jobs:
         if: steps.find.outputs.found == 'true' && env.DRY_RUN != 'true'
         run: |
           gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --jq '.status'
+
+      - name: Notify search engines (IndexNow)
+        if: steps.find.outputs.found == 'true' && env.DRY_RUN != 'true'
+        continue-on-error: true
+        run: |
+          # Give GitHub Pages time to deploy, then tell IndexNow engines (Bing,
+          # Yandex and others) which pages changed. Failure does not affect
+          # the release.
+          sleep 120
+          python3 - "${{ steps.find.outputs.id }}" <<'PY'
+          import glob, json, os, re, sys, urllib.request
+          note_id = sys.argv[1]
+          site = "https://equilibriumdaily.github.io"
+          keys = [f[:-4] for f in glob.glob("*.txt") if re.fullmatch(r"[0-9a-f]{32}\.txt", f)]
+          if not keys:
+              sys.exit("No IndexNow key file found.")
+          note = next(n for n in json.load(open("notes.json")) if n["id"] == note_id)
+          urls = [site + "/", site + "/archive.html", site + "/notes/" + note_id + ".html",
+                  site + "/sections/" + note["section"] + ".html", site + "/feed.xml",
+                  site + "/sitemap.xml", site + "/llms.txt", site + "/llms-full.txt"]
+          body = json.dumps({"host": "equilibriumdaily.github.io", "key": keys[0],
+                             "keyLocation": site + "/" + keys[0] + ".txt", "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                       headers={"Content-Type": "application/json; charset=utf-8"})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              print("IndexNow status", r.status, "for", len(urls), "URLs")
+          PY

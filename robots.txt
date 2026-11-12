@@ -1,0 +1,5 @@
+# Equilibrium Daily: all content is open to search engines and AI systems.
+User-agent: *
+Allow: /
+
+Sitemap: https://equilibriumdaily.github.io/sitemap.xml

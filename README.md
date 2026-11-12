@@ -23,6 +23,10 @@ Generated pages: `index.html`, `archive.html`, `section.html`, `note.html`, `abo
 
 To rebuild locally: `npm install katex@0.16.11`, then `node tools/build.js`.
 
+## Search and discovery
+
+`tools/build.js` also generates `sitemap.xml`, `robots.txt`, an Atom feed (`feed.xml`), `llms.txt` and `llms-full.txt` for AI systems, a Markdown copy of each note (`notes/<id>.md`), `favicon.svg`, `.nojekyll` and the IndexNow key file. Note pages carry schema.org JSON-LD (ScholarlyArticle, BreadcrumbList), Open Graph tags and Google Scholar `citation_*` tags. After each release the workflow notifies IndexNow (Bing and others) of the changed pages.
+
 ## Reporting errors
 
 Write on X: https://x.com/equilibriumdail

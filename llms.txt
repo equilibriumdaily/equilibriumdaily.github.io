@@ -1,0 +1,56 @@
+# Equilibrium Daily
+
+> One short note a day, each stating and proving one result in economics or finance. Notes are drafted by AI and reviewed before publication. Each note states one result, proves it in a PDF, and lists its sources. Everything is free to read, cite and reuse.
+
+Notes are drafted by an AI model, checked, and reviewed by a person before publication. Errors are reported on X (https://x.com/equilibriumdail). The full text of every note, in Markdown with LaTeX, is at https://equilibriumdaily.github.io/llms-full.txt; each note is also available as Markdown at /notes/<id>.md.
+
+## About
+
+- [About](https://equilibriumdaily.github.io/about.html): how notes are produced and corrected
+- [Why](https://equilibriumdaily.github.io/why.html): evidence on gatekeeping in academic publishing
+- [Archive](https://equilibriumdaily.github.io/archive.html): all notes, newest first
+- [Atom feed](https://equilibriumdaily.github.io/feed.xml)
+
+## Game Theory
+
+- [Who Bargains Next? Recognition and Cooperative Allocations](https://equilibriumdaily.github.io/notes/0005.md): Who proposes after an offer is rejected looks like a procedural detail, but it changes the outcome of coalitional bargaining. If the player who rejects proposes next, patient players no longer reach the Shapley value…
+- [The Information Complexity of Nash Equilibrium](https://equilibriumdaily.github.io/notes/0002.md): How many noisy observations of payoffs are needed to find an approximate Nash equilibrium of a small zero-sum game with high confidence? The answer depends only on the equilibrium mixing probabilities, is largest when…
+
+## Mechanism Design
+
+- [The Price of a Place in Line](https://equilibriumdaily.github.io/notes/0001.md): A regulator must decide whose infrastructure project goes first but cannot verify how valuable or reliable a developer's project is. Collateral is then the only tool that makes developers report truthfully. The note…
+
+## Information Economics
+
+- [Five Small Errors in Bayesian Persuasion](https://equilibriumdaily.github.io/notes/0012.md): Kamenica and Gentzkow (2011) founded information design, and a line-by-line check confirms its main theorems: with finitely many states, the sender's best signal is found by concavifying his payoff, an optimum exists…
+- [Wisdom of Crowds with Many Separate Groups: A Correction to Golub and Jackson (2010)](https://equilibriumdaily.github.io/notes/0008.md): Golub and Jackson (2010) showed that a society that averages its neighbors' opinions learns the truth exactly when no one keeps a large influence. That equivalence breaks when the society splits into many separate…
+
+## Asset Pricing
+
+- [Rough Heston Variance at Zero: Negative Moments, Conditional Paths and a Test for the Zero Event](https://equilibriumdaily.github.io/notes/0015.md): In the rough Heston model the instantaneous variance is exactly zero with positive probability at every date. Without drift, the variance also puts so much probability just above zero that the expected inverse variance…
+- [No-Arbitrage Does Not Imply an Equivalent Calibrated Pricing Measure](https://equilibriumdaily.github.io/notes/0014.md): When a stock trades over two dates and options on its final price are priced by the market, one usually expects that ruling out arbitrage guarantees a pricing measure that agrees with the physical probabilities on…
+- [Does Stamp Duty Make UK Shares Cheap? Prices Say No, Takeovers Say Maybe](https://equilibriumdaily.github.io/notes/0011.md): The UK charges a 0.5% tax every time a UK share is bought, and a common argument holds that this makes UK shares cheap and UK companies easy takeover targets. If buyers priced in every future payment of the tax, the…
+- [The Pre-FOMC Drift Lost Its Morning](https://equilibriumdaily.github.io/notes/0003.md): Stocks have earned a well-known excess return in the hours before Federal Reserve announcements. Studies using daily closing prices conclude that this drift has faded, but it has moved rather than disappeared: since…
+
+## Macroeconomics
+
+- [The Feldstein-Horioka Puzzle Is Back](https://equilibriumdaily.github.io/notes/0016.md): Feldstein and Horioka (1980) found that countries that save more also invest more, almost one for one, as if capital could not cross borders. By the mid-2000s the link had nearly vanished. In World Bank data up to 2024…
+- [Growth in Endogenous Production Networks Needs Compatible Recipes: A Correction to Acemoglu and Azar (2020)](https://equilibriumdaily.github.io/notes/0009.md): Acemoglu and Azar (2020) show that when firms choose their suppliers, the growth rate equals the rate at which the best technologies improve, multiplied by the full input-output network. That product assumes firms can…
+
+## Urban Economics
+
+- [Urban Growth Replicates, With Three Fixes](https://equilibriumdaily.github.io/notes/0013.md): Duranton and Puga (2023) estimate that relaxing planning limits in seven expensive US cities would raise national output by about 8%. An independent rewrite of their public code reproduces every headline number…
+- [Zipf's Law for US Cities, 2000-2024](https://equilibriumdaily.github.io/notes/0004.md): Zipf's law, under which a city's size is inversely proportional to its rank, is often treated as a constant of urban economics. In US data for 2000-2024 it holds only for metropolitan areas at particular cut-offs…
+
+## Sports Economics
+
+- [The Pythagorean Expectation, 45 Seasons Later](https://equilibriumdaily.github.io/notes/0006.md): Bill James's formula linking a baseball team's wins to its runs scored and allowed has worked unchanged in the 45 seasons since it was published. Records that beat the formula are mostly luck and do not carry over, so…
+
+## Consumer Economics
+
+- [Engel's Law Holds for Groceries, Not for Restaurants](https://equilibriumdaily.github.io/notes/0007.md): Poorer households spend a larger share of their budget on food, and this still holds in US data up to 2024. The pattern comes entirely from groceries: spending on restaurants rises in proportion to the budget in every…
+
+## Industrial Organization
+
+- [Do US Firm Sizes Follow Zipf's Law? In the Middle, Yes. At the Top, No](https://equilibriumdaily.github.io/notes/0010.md): Axtell (2001) found that US firm sizes follow Zipf's law: a firm ten times larger is ten times rarer, from the smallest firms to the largest. In public data up to 2023 this holds remarkably well between about 5 and…
+
