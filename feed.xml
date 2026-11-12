@@ -8,6 +8,15 @@
   <updated>2026-11-12T00:00:00Z</updated>
   <author><name>Equilibrium Daily</name><uri>https://equilibriumdaily.github.io/</uri></author>
   <entry>
+    <title>Noise Beats Coarseness: The Value of Inside Information in the Kyle-Back Model</title>
+    <link href="https://equilibriumdaily.github.io/notes/0017.html"/>
+    <id>https://equilibriumdaily.github.io/notes/0017.html</id>
+    <published>2026-11-12T00:00:00Z</published>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <category term="Market Microstructure"/>
+    <summary>Two signals that explain the same share of a normal fundamental's variance can be worth very different amounts to an insider in the continuous-time Kyle model. The sign of the fundamental explains 63.7 percent of its variance and earns 63.7 percent of the full-information profit, while normal noisy information of the same precision earns 79.8 percent. The insider must steer order flow to a normally distributed endpoint to stay hidden, so information whose shape is far from normal is worth less.</summary>
+  </entry>
+  <entry>
     <title>The Feldstein-Horioka Puzzle Is Back</title>
     <link href="https://equilibriumdaily.github.io/notes/0016.html"/>
     <id>https://equilibriumdaily.github.io/notes/0016.html</id>
