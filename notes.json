@@ -464,5 +464,21 @@
       "Data: Bank of England, A millennium of macroeconomic data, version 3.1; Jorda-Schularick-Taylor Macrohistory Database, release 6 (public)."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0027",
+    "date": "2026-11-21",
+    "section": "sports",
+    "title": "Participation Explains Half the Gender Gap at the Top of Chess",
+    "intuition": "Do the best men outrate the best women at chess simply because there are so many more men at the board? Reshuffling the sex labels of every active FIDE-rated player, as if each one were assigned by a coin heavily weighted towards men, reproduces about half of the gap between the world's 100 best men and 100 best women. At the very top, best man against best woman, the reshuffle explains only about a quarter, and further down the list women still average 115 points below men. Whatever explains the other half, this test cannot see it, so it offers a draw by agreement.",
+    "statement": "On the FIDE standard list of November 2026 (223,908 active players, 24,150 of them women), randomly permuting sex labels while holding the number of each sex fixed reproduces 140 of the 268-point average gap between the world's i-th best man and i-th best woman for i = 1 to 100 (52 percent), 213 of 378 points in Germany (56 percent), and 56 of 227 points between the single best man and the single best woman (24 percent). Participation therefore scores half a point, which in chess is a draw.",
+    "summary": "Chess has roughly nine men for every woman on the FIDE list, and Bilalic, Smallbone, McLeod and Gobet (2009) argued that this alone explains why the best men outrate the best women, finding that participation accounted for 96 percent of the gap among Germany's top 100. Applying their test to the November 2026 FIDE standard list, the note randomly permutes the sex labels within each group, keeping the numbers of men and women fixed, and treats the average result as the gap that participation alone would produce. So far the original claim survives only halfway: participation accounts for 140 of the 268 points between the world's top 100 pairs, 56 percent of the German gap, and 24 percent of the gap between the single best man and the single best woman. The distributions also differ below the top, with women 115 points lower on average and 66 points lower among players born after 2005, a cohort in which they are 18 percent of rated players. Less intuitively, across 55 federations with at least 100 active women, participation explains less of the top gap where women are a larger share of players, as in Russia (35 percent explained) compared with the Netherlands, Sweden and Belgium (74 to 82 percent). Everything else, from training and age at entry to games played, opponents in women's events and the rating floor of 1,400, sits in the unexplained half, which this test cannot divide among its suspects; readers who enjoy puzzles should read the first letters of the sentences, here and in the note.",
+    "pdf": "pdf/0027.pdf",
+    "sources": [
+      "Bilalic, M., Smallbone, K., McLeod, P., and Gobet, F. 2009. \"Why Are (the Best) Women So Good at Chess? Participation Rates and Gender Differences in Intellectual Domains.\" Proceedings of the Royal Society B 276: 1161-1165.",
+      "Knapp, M. 2010. \"Are Participation Rates Sufficient to Explain Gender Differences in Chess Performance?\" Proceedings of the Royal Society B 277: 2269-2270.",
+      "Data: FIDE standard rating list, November 2026 (public)."
+    ],
+    "x_url": ""
   }
 ]
