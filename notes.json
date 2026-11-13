@@ -409,5 +409,23 @@
       "Data: BLS average prices and producer price indices, CPI-U, IMF arabica price and WTI spot price, via FRED (public)."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0024",
+    "date": "2026-11-18",
+    "section": "macro",
+    "title": "The Hotelling Rule Holds Only on Average",
+    "intuition": "Hotelling's rule says that the scarcity rent on an exhaustible resource should grow at the rate of interest. Over 65 years, the real prices of oil, metals and other exhaustible resources have risen relative to farm commodities by about what the rule implies at the average real interest rate. Over shorter periods the relation runs the wrong way: exhaustible prices fell fastest when real rates were highest, in the 1980s, and rose fastest when rates were low, in the 2000s.",
+    "statement": "Over 1960-2024 the average trend of log real prices is 0.47 percent a year for 13 exhaustible resources and $-1.69$ percent for 10 renewable commodities, a gap of 2.16 points (s.e. 0.35); with the real ten-year Treasury yield of 1.94 percent, this implies a rent share of about 0.6 of the price. Across 46 rolling 20-year windows the exhaustible trend has a correlation of $-0.68$ with the real yield and the gap over renewables $-0.02$, and in annual data the response of exhaustible price changes to the lagged real yield is 0.21 (s.e. 0.83) against a predicted one.",
+    "summary": "If a mine owner can extract now or later, the price net of extraction cost must rise at the rate of interest. Because extraction and farm production share technological progress, the note compares World Bank real prices of 13 exhaustible resources with those of 10 renewable commodities, deflated by the US CPI, and relates the gap to real Treasury yields. With a rent share s of the price, the gap should be s times the real rate less the common cost trend. Over the full sample the gap of 2.16 points implies a share of about 0.6, and it is not driven by oil and gold: base metals alone show a gap of 1.36 points. Decade by decade the relation fails. Exhaustible prices fell 4.6 percent a year in 1980-99, when real yields averaged 4.1 percent, and rose 2.0 percent a year in 2000-24, when yields averaged 0.7 percent; renewable trends move the same way, with a correlation of $-0.79$ with the real yield across rolling windows. The common movement fits the cost of carry and demand, as in Frankel (2008), and the average gap is consistent with a Hotelling rent without identifying one.",
+    "pdf": "pdf/0024.pdf",
+    "sources": [
+      "Frankel, J. A. 2008. \"The Effect of Monetary Policy on Real Commodity Prices.\" In Asset Prices and Monetary Policy, ed. J. Y. Campbell, 291-333. Chicago: University of Chicago Press.",
+      "Hotelling, H. 1931. \"The Economics of Exhaustible Resources.\" Journal of Political Economy 39(2): 137-175.",
+      "Krautkraemer, J. A. 1998. \"Nonrenewable Resource Scarcity.\" Journal of Economic Literature 36(4): 2065-2107.",
+      "Livernois, J. 2009. \"On the Empirical Significance of the Hotelling Rule.\" Review of Environmental Economics and Policy 3(1): 22-41.",
+      "Data: World Bank Commodity Price Data (Pink Sheet); US Treasury yields and CPI via FRED (public)."
+    ],
+    "x_url": ""
   }
 ]
