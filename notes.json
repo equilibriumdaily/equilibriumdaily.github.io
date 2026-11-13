@@ -326,5 +326,20 @@
       "Viswanathan, S., and Xing, H. 2026. \"Flexible Information Acquisition in the Kyle Model.\" arXiv:2603.21842."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0019",
+    "date": "2026-11-13",
+    "section": "mechanism-design",
+    "title": "The Bandit-Auction Index of Pavan, Segal and Toikka, Taken Literally",
+    "intuition": "Pavan, Segal and Toikka (2014) show how to sell to buyers who learn their values by consuming, allocating each period to the buyer with the highest virtual index. Their formula takes the expectation of a ratio of discounted sums, while the index that makes such rules optimal is a ratio of expectations. Taken literally, the printed formula undervalues experimentation and refuses trials that the optimal mechanism makes; the general theorems of the paper are unaffected.",
+    "statement": "The virtual index in equation (15) of Pavan, Segal and Toikka (2014) places the expectation outside a discounted-reward ratio, whereas the Gittins index, a ratio of expectations, is the one that makes an index rule optimal. In a one-buyer example satisfying the paper's assumptions, with $\\delta = 1/2$ and initial value $v \\sim U(0,1)$, every individually rational, incentive-compatible mechanism implementing the printed rule earns at most 0.63133, while a simple incentive-compatible mechanism earns 0.63335. The index also freezes the current cost, and with costs that vary over time an index rule need not be optimal.",
+    "summary": "In the bandit auction a seller allocates one unit per period among buyers whose values change only when they are served, and the optimal mechanism awards the unit to the highest virtual index. As printed, the index averages realized discounted rewards along each path and then takes expectations; it coincides with the Gittins index only for fixed stopping dates. In a one-buyer example where the first purchase reveals a standard normal shock, the printed index caps the value of continuing after good news at one half, so buyers with initial values between 0.362 and 0.400 are never served although trying them is profitable. Every incentive-compatible mechanism implementing the printed rule therefore earns at most 0.63133, against 0.63335 for a mechanism that sells one unit and then an option to buy all future units, which is globally incentive compatible and attains the virtual surplus of the Gittins rule. Because the index holds today's cost fixed, a buyer can be served even when every sale has negative virtual surplus under the true time-varying costs, and with such costs the arms are no longer standard bandits. Smaller points: the handicap is described with the wrong sign, the regularity condition should bound absolute moments of the innovations rather than their means, and the nonlinear autoregressive example needs the extra curvature condition of the Supplemental Material, without which two incentive constraints fail. The envelope formula, revenue equivalence and the implementability theorems are untouched.",
+    "pdf": "pdf/0019.pdf",
+    "sources": [
+      "Gittins, J., Glazebrook, K., and Weber, R. 2011. Multi-Armed Bandit Allocation Indices, 2nd ed. Chichester: Wiley.",
+      "Pavan, A., Segal, I., and Toikka, J. 2014. \"Dynamic Mechanism Design: A Myersonian Approach.\" Econometrica 82(2): 601-653, and Supplemental Material."
+    ],
+    "x_url": ""
   }
 ]

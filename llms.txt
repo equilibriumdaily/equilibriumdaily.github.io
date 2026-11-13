@@ -18,6 +18,7 @@ Notes are drafted by an AI model, checked, and reviewed by a person before publi
 
 ## Mechanism Design
 
+- [The Bandit-Auction Index of Pavan, Segal and Toikka, Taken Literally](https://equilibriumdaily.github.io/notes/0019.md): Pavan, Segal and Toikka (2014) show how to sell to buyers who learn their values by consuming, allocating each period to the buyer with the highest virtual index. Their formula takes the expectation of a ratio of…
 - [The Price of a Place in Line](https://equilibriumdaily.github.io/notes/0001.md): A regulator must decide whose infrastructure project goes first but cannot verify how valuable or reliable a developer's project is. Collateral is then the only tool that makes developers report truthfully. The note…
 
 ## Information Economics
