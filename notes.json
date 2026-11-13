@@ -392,5 +392,22 @@
       "Data: The Economist, Big Mac index (github.com/TheEconomist/big-mac-data); Jorda-Schularick-Taylor Macrohistory Database, Release 6 (public)."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0023",
+    "date": "2026-11-17",
+    "section": "io",
+    "title": "Rockets and Feathers in the Egg Aisle",
+    "intuition": "Before 2015, retail egg prices followed wholesale prices up and down at the same speed. Since the bird-flu outbreaks began in 2015, they rise with wholesale costs much faster than they fall. In October 2026 wholesale eggs cost a third less than in 2019, yet a dozen in the shop cost two thirds more, far above what wholesale prices and general inflation imply.",
+    "statement": "In an asymmetric error-correction model of the BLS average retail price of a dozen eggs on the producer price index for eggs, the four-month pass-through of wholesale increases and decreases is 0.80 and 0.79 over 1980-2014 (p = 0.99 for equality) and 0.61 and 0.32 over 2015-2026 (p = 0.002). In October 2026 the retail price was 0.43 log points above the long-run relation with wholesale prices and the CPI, and over January to October 2026 the excess comes to roughly 2 billion dollars.",
+    "summary": "Eggs are a near-homogeneous product with a volatile wholesale price, and three avian-influenza outbreaks since 2015 have each been followed by a collapse in wholesale prices. Using monthly BLS retail prices, the egg PPI and the CPI-U from 1980, the note estimates an error-correction model with separate responses to wholesale increases and decreases. Before 2015 the responses are symmetric; since 2015 an increase passes into the retail price about three times as fast as a decrease in the first month and twice as much over four months, and the asymmetry holds when the sample ends in 2024, starts in 2010, or uses one or six lags. After the 2025 outbreak wholesale prices fell 94 percent from their peak, while the retail price of 2.32 dollars a dozen in October 2026 was 66 percent above its 2019 average against general inflation of 32 percent; six of the eight largest monthly gaps to the long-run relation since 1980 fall in 2026. Since 2015 milk, coffee and gasoline prices also respond more to cost increases than to decreases, chicken only marginally. The asymmetry appears in the South, where no state cage-free mandate applies, and in the Midwest. The note does not identify market power or the cause of the asymmetry.",
+    "pdf": "pdf/0023.pdf",
+    "sources": [
+      "Ajoseh, S., Thornsbury, S., and Onel, G. 2025. \"Assessing the Impact of Highly Pathogenic Avian Influenza (HPAI) Outbreak Intensity on Price Transmission in the U.S. Egg Market.\" Paper presented at the 2025 AAEA and WAEA Joint Annual Meeting, Denver.",
+      "Borenstein, S., Cameron, A. C., and Gilbert, R. 1997. \"Do Gasoline Prices Respond Asymmetrically to Crude Oil Price Changes?\" Quarterly Journal of Economics 112(1): 305-339.",
+      "Peltzman, S. 2000. \"Prices Rise Faster Than They Fall.\" Journal of Political Economy 108(3): 466-502.",
+      "Data: BLS average prices and producer price indices, CPI-U, IMF arabica price and WTI spot price, via FRED (public)."
+    ],
+    "x_url": ""
   }
 ]
