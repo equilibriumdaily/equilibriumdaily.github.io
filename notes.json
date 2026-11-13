@@ -427,5 +427,23 @@
       "Data: World Bank Commodity Price Data (Pink Sheet); US Treasury yields and CPI via FRED (public)."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0025",
+    "date": "2026-11-19",
+    "section": "macro",
+    "title": "The Cost Disease Costs a Tenth of a Point",
+    "intuition": "Baumol's cost disease says that services with slow productivity growth, such as health care and education, become relatively more expensive, and take a growing share of spending if demand for them is price-inelastic. In US consumer spending since 1960 they have: health care and education rose from 6 to 20 percent of the budget as their relative price nearly tripled. The drag on measured productivity growth from this shift is small, about a tenth of a percentage point a year.",
+    "statement": "Across 72 categories of US personal consumption expenditures, 1960-2025, the slope of decade changes in log budget shares on decade changes in log relative prices, weighted by initial share with decade effects, is 0.28 (s.e. 0.13), an elasticity of substitution $\\sigma \\approx 0.72$; goods against services give $\\sigma = 0.65$ in annual data. If relative prices track relative productivity, the shift of spending away from 1960 weights lowered measured productivity growth in consumption by 0.11 percentage points a year on average, 7.3 percent cumulatively.",
+    "summary": "With CES demand the change in a category's log budget share equals $1 - \\sigma$ times the change in its log relative price plus a common term, and the cost disease needs $\\sigma < 1$. Using BEA price and spending series for the most detailed consumption categories available since 1960, with nonprofit spending entered as final consumption, the note finds that spending shifts toward categories whose relative price rises. Services rose from 47 to 69 percent of spending as their price relative to goods tripled, and nine health and education categories rose from 6.3 to 20.4 percent. The evidence is weaker without weights (slope 0.16) and in the 65-year long difference, where income effects of the kind found by Comin, Lashkari and Mestieri (2021) also move shares. Treating relative prices as relative productivity, the gap between productivity growth measured with current and with 1960 spending weights averages 0.11 points a year, with most of it in 1980-99 and a reversal since 2020, in line with the modest effect Nordhaus (2008) finds in industry data.",
+    "pdf": "pdf/0025.pdf",
+    "sources": [
+      "Baumol, W. J. 1967. \"Macroeconomics of Unbalanced Growth: The Anatomy of Urban Crisis.\" American Economic Review 57(3): 415-426.",
+      "Comin, D., Lashkari, D., and Mestieri, M. 2021. \"Structural Change with Long-Run Income and Price Effects.\" Econometrica 89(1): 311-374.",
+      "Ngai, L. R., and Pissarides, C. A. 2007. \"Structural Change in a Multisector Model of Growth.\" American Economic Review 97(1): 429-443.",
+      "Nordhaus, W. D. 2008. \"Baumol's Diseases: A Macroeconomic Perspective.\" B.E. Journal of Macroeconomics 8(1), Article 9.",
+      "Data: BEA NIPA Tables 2.3.4, 2.3.5, 2.4.4 and 2.4.5 (public)."
+    ],
+    "x_url": ""
   }
 ]
