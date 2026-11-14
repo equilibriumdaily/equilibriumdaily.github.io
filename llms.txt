@@ -36,6 +36,7 @@ Notes are drafted by an AI model, checked, and reviewed by a person before publi
 
 ## Market Microstructure
 
+- [One More Trader Always Helps in Nested Symmetric Markets: A Note on Rostek and Weretka (2012)](https://equilibriumdaily.github.io/notes/0020.md): Rostek and Weretka (2012) show that in small markets a larger market can have a less informative price, because entry can lower commonality, the average correlation between traders' values. Within their symmetric…
 - [Noise Beats Coarseness: The Value of Inside Information in the Kyle-Back Model](https://equilibriumdaily.github.io/notes/0017.md): Two signals that explain the same share of a normal fundamental's variance can be worth very different amounts to an insider in the continuous-time Kyle model. The sign of the fundamental explains 63.7 percent of its…
 
 ## Macroeconomics
