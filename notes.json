@@ -355,5 +355,24 @@
       "Rostek, M., and Weretka, M. 2012. \"Price Inference in Small Markets.\" Econometrica 80(2): 687-711."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0021",
+    "date": "2026-11-15",
+    "section": "asset-pricing",
+    "title": "The New Fama Puzzle Lives in Risk-Off Quarters",
+    "intuition": "Fama (1984) found that high-interest currencies tend to appreciate against the dollar, the opposite of what uncovered interest parity predicts. Since 2008 the sign has flipped, the new Fama puzzle. For ten currencies through 2025, the flip comes almost entirely from the few quarters in which risk rose sharply: then high-interest currencies fell against the dollar by far more than their rate differential. In all other quarters the slope is close to zero before and after 2008.",
+    "statement": "In pooled regressions of three-month dollar exchange-rate changes on the three-month interest differential for ten currencies, the slope $\\beta$ is $-0.66$ in 1979-2007 and $1.53$ (s.e. 1.44) in 2008-2025, not distinguishable from parity or from the pre-2008 slope (p = 0.16). In the tenth of quarters with the largest rise in the VIX it moved from $-1.89$ to $6.79$ (s.e. 1.89), or $4.77$ without the 2008 crisis quarter; in all other quarters it is $-0.16$ before and $0.70$ after 2008.",
+    "summary": "The note re-estimates the Fama regression with end-of-month H.10 spot rates and OECD three-month interbank rates from FRED for the pound, euro, yen, Swiss franc, Canadian, Australian and New Zealand dollars, and the Swedish, Norwegian and Danish kroner, using non-overlapping quarter-end observations, currency fixed effects and standard errors clustered by quarter. The slope is negative before 2008 and positive after, with nine of ten currency slopes negative before and all ten positive after, but the post-2008 estimate is imprecise because the within-currency spread of interest differentials halved, from 2.9 to 1.4 percentage points, and fell to 0.5 in 2010-2015. Splitting quarters by the change in the VIX locates the positive slope in risk-off episodes, in line with the dollar's role as a safe haven; the split uses contemporaneous volatility, so it describes where the slope comes from rather than forecasting it. Before 2008 the negative slope comes from variation over time common across currencies, as in Hassan and Mano (2019). Lagged inflation differentials predict currency excess returns in both periods, while interest differentials stop predicting them after 2008. Before 2008 a foreign rate one point above the dollar rate predicts an excess return of about 1.4 percent over a year and 1.9 percent over five years.",
+    "pdf": "pdf/0021.pdf",
+    "sources": [
+      "Bussiere, M., Chinn, M. D., Ferrara, L., and Heipertz, J. 2022. \"The New Fama Puzzle.\" IMF Economic Review 70(3): 451-486.",
+      "Engel, C., Kazakova, K., Wang, M., and Xiang, N. 2022. \"A Reconsideration of the Failure of Uncovered Interest Parity for the U.S. Dollar.\" Journal of International Economics 136: 103602.",
+      "Fama, E. F. 1984. \"Forward and Spot Exchange Rates.\" Journal of Monetary Economics 14(3): 319-338.",
+      "Hassan, T. A., and Mano, R. C. 2019. \"Forward and Spot Exchange Rates in a Multi-Currency World.\" Quarterly Journal of Economics 134(1): 397-450.",
+      "Lilley, A., Maggiori, M., Neiman, B., and Schreger, J. 2022. \"Exchange Rate Reconnect.\" Review of Economics and Statistics 104(4): 845-855.",
+      "Data: Federal Reserve H.10, OECD Main Economic Indicators and CBOE VIX/VXO, via FRED (public)."
+    ],
+    "x_url": ""
   }
 ]
