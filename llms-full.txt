@@ -2,6 +2,36 @@
 
 > One short note a day, each stating and proving one result in economics or finance. Notes are drafted by AI and reviewed before publication.
 
+# Burgernomics After 25 Years: The Gap Closes Through Burger Prices
+
+Equilibrium Daily, No. 0022, 16 November 2026. Section: Macroeconomics.
+
+- Page: https://equilibriumdaily.github.io/notes/0022.html
+- Full note with proof (PDF): https://equilibriumdaily.github.io/pdf/0022.pdf
+- Drafted by an AI model and reviewed by a person before publication.
+
+## Intuition
+
+The Economist's Big Mac index calls a currency overvalued when a burger costs more there in dollars than in the United States, which suggests the currency should fall. Over 25 years of the index, overvalued currencies have been no more likely to depreciate than any other. The burger gaps that do close, close because local menu prices catch up with past currency moves. National price levels under floating rates adjust through the exchange rate instead; only under the classical gold standard did price levels do the closing, as Big Mac prices do today.
+
+## Result
+
+For 37 floating currencies in the Economist's Big Mac data, April 2000 to July 2026, the slope of the exchange-rate part of the change in the published valuation on its starting level is 0.00 (s.e. 0.02) at horizons of one, two and five years, while about a fifth of the raw gap closes within five years through relative burger prices. Out of sample, from 2010 onward, the index forecasts exchange rates worse than no change at every horizon. For consumer price levels in 17 countries under floating rates, 1974-2020, the nominal exchange rate accounts for $-0.92$ of a five-year real-exchange-rate slope of $-1.08$; under the gold standard, 1880-1913, relative prices account for $-0.65$ of $-0.66$.
+
+## Summary
+
+The note splits the change in each currency's Big Mac valuation over one, two and five years into an exchange-rate part and a relative burger-price part, and regresses each on the starting valuation, after dropping eleven pegged currencies and seven with very large average annual moves against the dollar. The exchange-rate slope is zero at every horizon, and including the volatile currencies gives the wrong sign for the index. Measured against each country's own mean, gaps close faster and the exchange rate does about half of the closing, but that uses information a forecaster would not have had: with country means computed only from data available at each forecast date, out-of-sample forecasts are worse than a random walk, increasingly so with the horizon. Burger prices undo 0.17 of the previous year's exchange-rate move, while past burger-price moves are not reversed, which points to lagged pass-through rather than promotions or survey noise. For whole consumer price levels in the Jorda-Schularick-Taylor Macrohistory Database the ordering is the reverse under floating rates, with a median-unbiased half-life of 3.7 years; under the gold standard relative prices did all the closing. Earlier evaluations, from the index's first two decades, were more favorable to it.
+
+## Sources
+
+1. Clements, K. W., Lan, Y., and Seah, S. P. 2012. "The Big Mac Index Two Decades On: An Evaluation of Burgernomics." International Journal of Finance and Economics 17(1): 31-60.
+2. Eichenbaum, M., Johannsen, B. K., and Rebelo, S. 2021. "Monetary Policy and the Predictability of Nominal Exchange Rates." Review of Economic Studies 88(1): 192-228.
+3. Jorda, O., Schularick, M., and Taylor, A. M. 2017. "Macrofinancial History and the New Business Cycle Facts." NBER Macroeconomics Annual 31: 213-263.
+4. Parsley, D. C., and Wei, S.-J. 2007. "A Prism into the PPP Puzzles: The Micro-Foundations of Big Mac Real Exchange Rates." Economic Journal 117(523): 1336-1356.
+5. Data: The Economist, Big Mac index (github.com/TheEconomist/big-mac-data); Jorda-Schularick-Taylor Macrohistory Database, Release 6 (public).
+
+---
+
 # The New Fama Puzzle Lives in Risk-Off Quarters
 
 Equilibrium Daily, No. 0021, 15 November 2026. Section: Asset Pricing.
