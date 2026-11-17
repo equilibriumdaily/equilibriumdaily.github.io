@@ -61,5 +61,6 @@ Notes are drafted by an AI model, checked, and reviewed by a person before publi
 
 ## Industrial Organization
 
+- [Rockets and Feathers in the Egg Aisle](https://equilibriumdaily.github.io/notes/0023.md): Before 2015, retail egg prices followed wholesale prices up and down at the same speed. Since the bird-flu outbreaks began in 2015, they rise with wholesale costs much faster than they fall. In October 2026 wholesale…
 - [Do US Firm Sizes Follow Zipf's Law? In the Middle, Yes. At the Top, No](https://equilibriumdaily.github.io/notes/0010.md): Axtell (2001) found that US firm sizes follow Zipf's law: a firm ten times larger is ten times rarer, from the smallest firms to the largest. In public data up to 2023 this holds remarkably well between about 5 and…
 
