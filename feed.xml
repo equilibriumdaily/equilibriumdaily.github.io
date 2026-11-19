@@ -5,8 +5,18 @@
   <link href="https://equilibriumdaily.github.io/feed.xml" rel="self"/>
   <link href="https://equilibriumdaily.github.io/"/>
   <id>https://equilibriumdaily.github.io/</id>
-  <updated>2026-11-18T00:00:00Z</updated>
+  <updated>2026-11-19T00:00:00Z</updated>
   <author><name>Equilibrium Daily</name><uri>https://equilibriumdaily.github.io/</uri></author>
+  <entry>
+    <title>The Cost Disease Costs a Tenth of a Point</title>
+    <link href="https://equilibriumdaily.github.io/notes/0025.html"/>
+    <id>https://equilibriumdaily.github.io/notes/0025.html</id>
+    <published>2026-11-19T00:00:00Z</published>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <category term="Macroeconomics"/>
+    <summary>Baumol's cost disease says that services with slow productivity growth, such as health care and education, become relatively more expensive, and take a growing share of spending if demand for them is price-inelastic. In US consumer spending since 1960 they have: health care and education rose from 6 to 20 percent of the budget as their relative price nearly tripled. The drag on measured productivity growth from this shift is small, about a tenth of a percentage point a year.</summary>
+    <content type="html">&lt;p&gt;Baumol&amp;#39;s cost disease says that services with slow productivity growth, such as health care and education, become relatively more expensive, and take a growing share of spending if demand for them is price-inelastic. In US consumer spending since 1960 they have: health care and education rose from 6 to 20 percent of the budget as their relative price nearly tripled. The drag on measured productivity growth from this shift is small, about a tenth of a percentage point a year.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Result.&lt;/strong&gt; Across 72 categories of US personal consumption expenditures, 1960-2025, the slope of decade changes in log budget shares on decade changes in log relative prices, weighted by initial share with decade effects, is 0.28 (s.e. 0.13), an elasticity of substitution sigma ~ 0.72; goods against services give sigma = 0.65 in annual data. If relative prices track relative productivity, the shift of spending away from 1960 weights lowered measured productivity growth in consumption by 0.11 percentage points a year on average, 7.3 percent cumulatively.&lt;/p&gt;&lt;p&gt;With CES demand the change in a category&amp;#39;s log budget share equals 1 - sigma times the change in its log relative price plus a common term, and the cost disease needs sigma &amp;lt; 1. Using BEA price and spending series for the most detailed consumption categories available since 1960, with nonprofit spending entered as final consumption, the note finds that spending shifts toward categories whose relative price rises. Services rose from 47 to 69 percent of spending as their price relative to goods tripled, and nine health and education categories rose from 6.3 to 20.4 percent. The evidence is weaker without weights (slope 0.16) and in the 65-year long difference, where income effects of the kind found by Comin, Lashkari and Mestieri (2021) also move shares. Treating relative prices as relative productivity, the gap between productivity growth measured with current and with 1960 spending weights averages 0.11 points a year, with most of it in 1980-99 and a reversal since 2020, in line with the modest effect Nordhaus (2008) finds in industry data.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://equilibriumdaily.github.io/pdf/0025.pdf&quot;&gt;Full note with proof (PDF)&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>The Hotelling Rule Holds Only on Average</title>
     <link href="https://equilibriumdaily.github.io/notes/0024.html"/>
