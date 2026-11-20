@@ -445,5 +445,24 @@
       "Data: BEA NIPA Tables 2.3.4, 2.3.5, 2.4.4 and 2.4.5 (public)."
     ],
     "x_url": ""
+  },
+  {
+    "id": "0026",
+    "date": "2026-11-20",
+    "section": "macro",
+    "title": "When Interest Rates Ignored Inflation",
+    "intuition": "Under the gold standard, British long-term interest rates moved with the level of prices rather than with inflation, the regularity Keynes called Gibson's paradox. In two and a half centuries of Bank of England data the paradox appears whenever the pound was tied to gold and disappears under paper money, both during the Napoleonic suspension of convertibility and since 1973, when yields follow inflation instead. This is what Barsky and Summers (1988) predict if a fixed gold price makes the price level move with gold's real value.",
+    "statement": "Over 1822-1913 the British consol yield has a correlation of 0.45 with the log wholesale price level around a linear trend, 0.47 around a cubic trend and 0.61 when both series are measured against their own 31-year moving averages, and 0.06 with inflation over the previous five years. During the Restriction of 1797-1821 the correlation with the detrended price level is $-0.14$ and with inflation 0.41, and over 1973-2016 the correlation with inflation is 0.85. Across the Jorda-Schularick-Taylor countries the median correlation of long-term yields with inflation is 0.03 under the gold standard and 0.83 after 1973, positive in all 18.",
+    "summary": "Fisher's theory says nominal interest rates should move with expected inflation, the rate of change of prices, yet Gibson found British yields moving with the price level itself. The note measures the correlation of the consol yield with the detrended log wholesale price level and with five-year inflation in each British monetary regime since 1729, using the Bank of England's millennium dataset. Under gold the price-level relation holds across several long price swings, and a high price level did not forecast inflation over the next decade, so expected inflation does not explain it. Under inconvertible paper money the price-level relation turns negative and yields follow inflation, both during the Restriction, which coincided with the French wars, and since 1973. In the Jorda-Schularick-Taylor data the gold-standard correlation with the price level is positive in 16 of 17 countries around a linear trend, but the 1875-1913 window holds essentially one shared price swing, which a quadratic trend removes; the contrast that survives every measure is the correlation with inflation. The correlations describe comovement and do not separate the Barsky-Summers channel from other regime-dependent explanations.",
+    "pdf": "pdf/0026.pdf",
+    "sources": [
+      "Barsky, R. B., and Summers, L. H. 1988. \"Gibson's Paradox and the Gold Standard.\" Journal of Political Economy 96(3): 528-550.",
+      "Gibson, A. H. 1923. \"The Future Course of High-Class Investment Values.\" Bankers', Insurance Managers', and Agents' Magazine 115: 15-34.",
+      "Jorda, O., Schularick, M., and Taylor, A. M. 2017. \"Macrofinancial History and the New Business Cycle Facts.\" NBER Macroeconomics Annual 31: 213-263.",
+      "Keynes, J. M. 1930. A Treatise on Money, Volume 2. London: Macmillan.",
+      "Thomas, R., and Dimsdale, N. 2017. \"A Millennium of UK Data.\" Bank of England OBRA dataset.",
+      "Data: Bank of England, A millennium of macroeconomic data, version 3.1; Jorda-Schularick-Taylor Macrohistory Database, release 6 (public)."
+    ],
+    "x_url": ""
   }
 ]
