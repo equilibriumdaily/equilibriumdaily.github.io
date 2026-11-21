@@ -56,6 +56,7 @@ Notes are drafted by an AI model, checked, and reviewed by a person before publi
 
 ## Sports Economics
 
+- [Participation Explains Half the Gender Gap at the Top of Chess](https://equilibriumdaily.github.io/notes/0027.md): Do the best men outrate the best women at chess simply because there are so many more men at the board? Reshuffling the sex labels of every active FIDE-rated player, as if each one were assigned by a coin heavily…
 - [The Pythagorean Expectation, 45 Seasons Later](https://equilibriumdaily.github.io/notes/0006.md): Bill James's formula linking a baseball team's wins to its runs scored and allowed has worked unchanged in the 45 seasons since it was published. Records that beat the formula are mostly luck and do not carry over, so…
 
 ## Consumer Economics
